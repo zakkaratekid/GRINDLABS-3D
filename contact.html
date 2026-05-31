@@ -1,51 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="contact-page">
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Our Services</a>
-    <a href="projects.html">Projects</a>
-    <a class="active" href="contact.html">Contact</a>
-  </nav>
+<form
+  action="https://formspree.io/f/mvzyneel"
+  method="POST"
+>
+  <div class="fs-field">
+    <label class="fs-label" for="name">Your Name</label>
+    <input class="fs-input" id="name" name="name" required />
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="email">Email</label>
+    <input class="fs-input" id="email" name="email" required />
+    <p class="fs-description">
+      This will help me respond to your query via an email.
+    </p>
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="message">Message</label>
+    <textarea
+      class="fs-textarea"
+      id="message"
+      name="message"
+      required
+    ></textarea>
+    <p class="fs-description">What would you like to discuss?</p>
+  </div>
+  <div class="fs-button-group">
+    <button class="fs-button" type="submit">Submit</button>
+  </div>
+</form>
 
-  <form
-    action="https://formspree.io/f/mvzyneel"
-    class="fs-form"
-    method="POST"
-  >
-    <h1>Contact</h1>
-    <p class="fs-description">Send a message about BMX builds, 3D printing ideas, custom parts, or project feedback.</p>
+<style class="css">
+    body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background:
+    linear-gradient(rgba(190, 70, 180, 0.65), rgba(120, 40, 160, 0.75)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+  .fs-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-    <input type="hidden" name="_subject" value="New message from GRINDLABS 3D">
-    <input class="fs-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+  .fs-field {
+    margin-bottom: 1rem;
+  }
 
-    <div class="fs-field">
-      <label class="fs-label" for="name">Your Name</label>
-      <input class="fs-input" id="name" name="name" type="text" autocomplete="name" required>
-    </div>
+  .fs-label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 
-    <div class="fs-field">
-      <label class="fs-label" for="email">Email</label>
-      <input class="fs-input" id="email" name="email" type="email" autocomplete="email" required>
-      <p class="fs-description">This will help me respond to your query via email.</p>
-    </div>
+  .fs-input,
+  .fs-textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #6b5656;
+    border-radius: 4px;
+  }
 
-    <div class="fs-field">
-      <label class="fs-label" for="message">Message</label>
-      <textarea class="fs-textarea" id="message" name="message" required></textarea>
-      <p class="fs-description">What would you like to discuss?</p>
-    </div>
+  .fs-description {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #000000;
+  }
 
-    <div class="fs-button-group">
-      <button class="fs-button" type="submit">Submit</button>
-    </div>
-  </form>
-</body>
-</html>
+  .fs-button-group {
+    text-align: center;
+  }
+
+  .fs-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .fs-button:hover {
+    background-color: #0056b3;
+  }
+</style>
