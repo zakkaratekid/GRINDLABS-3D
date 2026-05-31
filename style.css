@@ -120,14 +120,36 @@ p {
 }
 
 .project-card img,
+.project-hero-split img,
 .project-hero-image {
   display: block;
   width: 100%;
   object-fit: cover;
 }
 
-.project-card img {
+.project-card > img,
+.project-split-image {
   aspect-ratio: 4 / 3;
+}
+
+.project-split-image,
+.project-hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  background: #111;
+}
+
+.project-split-image img,
+.project-hero-split img {
+  height: 100%;
+  min-width: 0;
+}
+
+.project-split-image .project-text-crop,
+.project-hero-split .project-text-crop {
+  background: #111;
+  object-fit: contain;
 }
 
 .project-card-content {
@@ -158,6 +180,41 @@ p {
   background: #65117d;
 }
 
+.pagination {
+  margin-top: 28px;
+}
+
+.pagination ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 10px 14px;
+  color: white;
+  background: rgba(40, 10, 45, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pagination a:hover,
+.pagination a.current-page {
+  color: #2b0833;
+  background: white;
+}
+
 .button-link.secondary {
   color: #2b0833;
   background: #ffd6f5;
@@ -173,6 +230,13 @@ p {
 
 .project-hero-image {
   max-height: 460px;
+  margin: 22px 0;
+  border-radius: 8px;
+}
+
+.project-hero-split {
+  min-height: 360px;
+  max-height: 520px;
   margin: 22px 0;
   border-radius: 8px;
 }
