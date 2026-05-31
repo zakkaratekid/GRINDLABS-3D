@@ -16,19 +16,24 @@
   </nav>
 
   <form
-    action="https://formspree.io/f/YOUR_FORM_ID"
+    action="https://formspree.io/f/mvzyneel"
     class="fs-form"
-    target="_top"
     method="POST"
   >
+    <h1>Contact</h1>
+    <p class="fs-description">Send a message about BMX builds, 3D printing ideas, custom parts, or project feedback.</p>
+
+    <input type="hidden" name="_subject" value="New message from GRINDLABS 3D">
+    <input class="fs-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+
     <div class="fs-field">
       <label class="fs-label" for="name">Your Name</label>
-      <input class="fs-input" id="name" name="name" required>
+      <input class="fs-input" id="name" name="name" type="text" autocomplete="name" required>
     </div>
 
     <div class="fs-field">
       <label class="fs-label" for="email">Email</label>
-      <input class="fs-input" id="email" name="email" type="email" required>
+      <input class="fs-input" id="email" name="email" type="email" autocomplete="email" required>
       <p class="fs-description">This will help me respond to your query via email.</p>
     </div>
 
