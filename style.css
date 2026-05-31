@@ -200,6 +200,12 @@ p {
   border-radius: 8px;
 }
 
+.fs-form h1 {
+  margin-bottom: 10px;
+  color: #231028;
+  font-size: 2.4rem;
+}
+
 .fs-field {
   margin-bottom: 18px;
 }
@@ -228,6 +234,11 @@ p {
   margin: 7px 0 0;
   color: #65456d;
   font-size: 0.92rem;
+}
+
+.fs-hidden {
+  position: absolute;
+  left: -9999px;
 }
 
 .fs-button {
