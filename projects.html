@@ -23,7 +23,7 @@
       <!-- Duplicate this article to add another project card. Change the image, title, text, and View link. -->
       <article class="project-card">
         <div class="project-split-image" aria-label="Prime BMX number plate close-up and front bike view">
-          <img src="assets/prime-bmx-plate-closeup.png" alt="Prime BMX number plate close-up">
+          <img class="project-text-crop" src="assets/prime-bmx-snap-on-text-crop.png" alt="Snap-on design text detail from the Prime BMX number plate">
           <img src="assets/prime-bmx-bike-front.png" alt="Prime BMX bike front view">
         </div>
         <div class="project-card-content">
@@ -33,9 +33,54 @@
         </div>
       </article>
     </section>
-        </div>
-      </article>
-    </section>
+
+    <nav class="pagination" aria-label="Projects pages"></nav>
   </main>
+
+  <script>
+    const cardsPerPage = 2;
+    const cards = Array.from(document.querySelectorAll(".project-card"));
+    const pagination = document.querySelector(".pagination");
+    const pageCount = Math.ceil(cards.length / cardsPerPage);
+    const params = new URLSearchParams(window.location.search);
+    const requestedPage = Number(params.get("page")) || 1;
+    const currentPage = Math.min(Math.max(requestedPage, 1), Math.max(pageCount, 1));
+
+    function pageHref(page) {
+      return `projects.html?page=${page}`;
+    }
+
+    function showPage(page) {
+      const start = (page - 1) * cardsPerPage;
+      const end = start + cardsPerPage;
+
+      cards.forEach((card, index) => {
+        card.hidden = index < start || index >= end;
+      });
+    }
+
+    function renderPagination(page) {
+      if (pageCount <= 1) {
+        pagination.hidden = true;
+        return;
+      }
+
+      const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+      pagination.innerHTML = `
+        <ul>
+          <li><a href="${pageHref(Math.max(page - 1, 1))}">Back</a></li>
+          ${pages.map((pageNumber) => `
+            <li>
+              <a class="${pageNumber === page ? "current-page" : ""}" href="${pageHref(pageNumber)}">${pageNumber}</a>
+            </li>
+          `).join("")}
+          <li><a href="${pageHref(Math.min(page + 1, pageCount))}">Forward</a></li>
+        </ul>
+      `;
+    }
+
+    showPage(currentPage);
+    renderPagination(currentPage);
+  </script>
 </body>
 </html>
