@@ -98,6 +98,23 @@
     updateCounter();
   }
 
+  function addImageFallbacks() {
+    document.querySelectorAll("img").forEach((image) => {
+      function replaceBrokenImage() {
+        const fallback = document.createElement("div");
+        fallback.className = "image-fallback";
+        fallback.textContent = image.alt || "GRINDLABS 3D project image";
+        image.replaceWith(fallback);
+      }
+
+      image.addEventListener("error", replaceBrokenImage, { once: true });
+
+      if (image.complete && image.naturalWidth === 0) {
+        replaceBrokenImage();
+      }
+    });
+  }
+
   function addLabPanel() {
     const panel = document.createElement("div");
     panel.className = "lab-panel";
@@ -225,6 +242,7 @@
     addTypewriter();
     addProjectTilt();
     addContactCounter();
+    addImageFallbacks();
     addLabPanel();
     addMotionCanvas();
   });
