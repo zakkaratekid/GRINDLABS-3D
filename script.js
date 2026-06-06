@@ -246,4 +246,4 @@
     addLabPanel();
     addMotionCanvas();
   });
-}());
+})();
